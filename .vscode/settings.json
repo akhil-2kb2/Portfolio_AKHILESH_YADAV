@@ -1,7 +1,12 @@
 {
     "liveServer.settings.port": 5501,
     "cSpell.words": [
+        "ampproject",
         "Calistoga",
-        "memoji"
+        "findlast",
+        "jridgewell",
+        "memoji",
+        "parseargs",
+        "ungap"
     ]
 }
