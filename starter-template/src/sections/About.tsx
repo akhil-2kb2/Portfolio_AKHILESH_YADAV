@@ -45,32 +45,47 @@ const toolboxItems = [
 ]
 const hobbies = [
   {
-    title: 'Painting',
-    emoji: '🎨',
+    title: "Painting",
+    emoji: "🎨",
+    left: "5%",
+    top: "5%",
   },
   {
-    title: 'Photography',
-    emoji: '📷',
+    title: "Photography",
+    emoji: "📷",
+    left: "50%",
+    top: "5%",
+  },
+  
+  {
+    title: "Hiking",
+    emoji: "🥾",
+    left: "35%",
+    top: "40%",
   },
   {
-    title: 'Gaming',
-    emoji: '🎮',
+    title: "Gaming",
+    emoji: "🎮",
+    left: "10%",
+    top: "35%",
   }, 
   {
-    title: 'Hiking',
-    emoji: '🥾',
+    title: "Music",
+    emoji: "🎵",
+    left: "70%",
+    top: "45%",
   },
   {
-    title: 'Music',
-    emoji: '🎵',
+    title: "Fitness",
+    emoji: "🏋️‍♂️",
+    left: "5%",
+    top: "65%",
   },
   {
-    title: 'Fitness',
-    emoji: '🏋️‍♂️',
-  },
-  {
-    title: 'Reading',
-    emoji: '📚',
+    title: "Reading",
+    emoji: "📚",
+    left: "45%",
+    top: "70%",
   },
 ];
 
@@ -83,7 +98,7 @@ export const AboutSection = () => {
         title="A Glimpse Into My World" 
         description="Learn More About Me Who I Am, What I Do, And What Inspires Me"
         />
-        <div className="mt-20">
+        <div className="mt-20 flex flex-col gap-6">
           <Card className="h-[320px]">
             <CardHeader title="My Reads" description="Explore The Books Shaping My Perspectives." />
              <div className="w-40 mx-auto mt-8">
@@ -91,27 +106,52 @@ export const AboutSection = () => {
             />
              </div>
           </Card>
-          <Card>
-          <CardHeader title="My Toolbox" description="Explore The Technologies And Tools I Use To Craft Exceptional Digital Experiences." 
+          <Card className="h-[320px] p-0">
+          <CardHeader 
+          title="My Toolbox" 
+          description="Explore The Technologies And Tools I Use To Craft Exceptional Digital Experiences." 
+          className="px-6 pt-6"
           />
-            <ToolboxItems items={toolboxItems} />
+            <ToolboxItems items={toolboxItems} className="mt-6" />
+            <ToolboxItems 
+            items={toolboxItems} 
+            className="mt-6" 
+            itemsWrapperClassName="-translate-x-1/2"
+            />
+            
           </Card>
-          <Card>
-          <CardHeader title="Beyond The Code" description="Explore My Interests And Hobbies Beyond The Digital Realm." 
+          <Card className="h-[320px] p-0 flex flex-col">
+          <CardHeader 
+            title="Beyond The Code" 
+            description="Explore My Interests And Hobbies Beyond The Digital Realm." 
+            className="px-6 py-6"
           />
-            <div>
+            <div className="relative flex-1">
               {hobbies.map(hobby => (
-                <div key={hobby.title}>
-                  <span>{hobby.title}</span>
+                <div 
+                  key={hobby.title} className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+                  style={{
+                    left: hobby.left,
+                    top: hobby.top,
+                  }}
+                >
+                  <span className="font-medium 
+                    text-gray-950">
+                    {hobby.title}
+                  </span>
                   <span>{hobby.emoji}</span>
 
                 </div>
               ))}
             </div>
           </Card>
-          <Card>
-            <Image src={mapImage} alt="map" />
-            <Image src={smileMemoji} alt="smiling memoji"/>
+          <Card className="h-[320px] p-0 relative">
+            <Image src={mapImage} alt="map" 
+            className="h-full w-full object-cover object-left-top"
+            />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 after:content[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
+              <Image src={smileMemoji} alt="smiling memoji" className="size-20"/>
+            </div>
           </Card>
         </div>
       </div>
